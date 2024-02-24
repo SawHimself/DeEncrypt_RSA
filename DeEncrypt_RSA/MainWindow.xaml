@@ -1,0 +1,56 @@
+﻿<Window x:Class="DeEncrypt_RSA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeEncrypt_RSA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"></RowDefinition>
+            <RowDefinition Height="57"></RowDefinition>
+            <RowDefinition Height="296*"></RowDefinition>
+            <RowDefinition Height="29*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2" Margin="0,1,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="343*"></ColumnDefinition>
+                <ColumnDefinition Width="305*"></ColumnDefinition>
+                <ColumnDefinition Width="152"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="EnteredText" Grid.Column="0"
+                 Height="Auto" 
+                 Width="Auto"
+                 Margin="28,2,15,1" TextWrapping="Wrap" Text="Введите текст для шифрования" 
+                 AcceptsReturn="True"/>
+            <TextBox x:Name="ResultText" Grid.Column="1"
+                 Height="Auto" 
+                 Width="Auto"
+                 Margin="10,3,0,0" TextWrapping="Wrap" Text="Зашифрованное сообщение" />
+            <Button x:Name="Generate" 
+                Click ="GenerateKey"
+                Content="GenerateKey" HorizontalAlignment="Center" Height="48" VerticalAlignment="Top" Width="108" Grid.Column="2" Margin="0,3,0,0"/>
+            <Button x:Name="Encrypt1" 
+                Click ="EncryptText"
+                Content="Encrypt" HorizontalAlignment="Center" Height="48" VerticalAlignment="Top" Width="108" Margin="0,63,0,0" Grid.Column="2"/>
+            <Button x:Name="Decrypt1" 
+                Click ="DecryptText"
+                Content="Decrypt" HorizontalAlignment="Center" Height="48" VerticalAlignment="Top" Width="108" Margin="0,125,0,0" Grid.Column="2"/>
+        </Grid>
+        <Label x:Name="label" Content="OpenKey" HorizontalAlignment="Left" Height="26"  Margin="28,52,0,0" VerticalAlignment="Top" Width="258" Grid.RowSpan="2"/>
+        <Label x:Name="label1" Content="SecretKey" HorizontalAlignment="Left" Height="26"  Margin="286,52,0,0" VerticalAlignment="Top" Width="258" Grid.RowSpan="2"/>
+        <TextBox x:Name="ReceivedKey" Text="Use the received key" HorizontalAlignment="Left" Height="26"  Margin="28,27,0,0" VerticalAlignment="Top" Width="258" Grid.Row="1"
+                 BorderThickness="0"/>
+        <Label x:Name="SecreKeyLabel" Content="Decryption key" HorizontalAlignment="Left" Height="27"  Margin="286,27,0,0" VerticalAlignment="Top" Width="258" Grid.Row="1"/>
+        <Label x:Name="label1_Copy" Content="My public key" HorizontalAlignment="Right" Height="26" VerticalAlignment="Top" Width="183" Grid.Row="1"/>
+        <TextBox x:Name="OpenKeyLabel" 
+                   HorizontalAlignment="Right" 
+                   Height="27"  Margin="0,27,0,0" VerticalAlignment="Top" Width="183" Grid.Row="1"
+                   Text="Share this key"
+                   IsReadOnly="True" 
+                   IsReadOnlyCaretVisible="True"
+                   BorderThickness="0">
+        </TextBox>
+    </Grid>
+</Window>
