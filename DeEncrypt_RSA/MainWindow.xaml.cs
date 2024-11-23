@@ -43,8 +43,6 @@ namespace DeEncrypt_RSA
             long q = random.Next(1000, 151850);
             q += random.Next(1000, 151850);
 
-
-            //                        Зафигачить в два потока
             p = FindTheNearestPrime(p);
             q = FindTheNearestPrime(q);
             long N = p * q;
@@ -114,35 +112,6 @@ namespace DeEncrypt_RSA
                 }
             }
             return d;
-
-            /*long a1 = a;
-            long b1 = b;
-            long q, r;
-            long x1 = 0;
-            long x2 = 1;
-            long y1 = 1;
-            long y2 = 0;
-            while(b1 > 0)
-            {
-                q = a1 / b1;
-                r = a1 - q * b1;
-                long x = x2 - q * x1;
-                long y = y2 - q * y1;
-                a1 = b1;
-                b1 = r;
-                x2 = x1;
-                x1 = x;
-                y2 = y1;
-                y1 = y;
-            }
-            if(x2 < y2)
-            {
-                return (a - Abs(x2));
-            }
-            else
-            {
-                return (a - Abs(y2));
-            }*/
         }
 
         private List<long> Encrypt(string openText, long E, long N)
